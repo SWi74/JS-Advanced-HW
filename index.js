@@ -1,8 +1,16 @@
-const cars = {
-    "ford": {"color": "red", "maxSpeed": "200mph" },
-    "bmw": {"color": "blue", "maxSpeed": "210mph"}
+const obj = {
+    log(){
+        console.log("logging")
+    },
+    dir(){
+        console.log("dirring")
+    }
 }
 
 
-console.log( cars.ford.color );
-console.log( cars.bmw.color );
+if (location.port == 5500) {
+    obj.log()
+} else {
+    obj.dir()
+}
+
