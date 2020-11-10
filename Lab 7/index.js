@@ -19,4 +19,4 @@ const hans = new Person("Hans", 42)
 const chris = new Developer("Christian", 90, ["Java", "Elixir", "Cow"])
 const joro = new Manager("Jorkata", 19, ["Ruja", "Kamata", "Kiro"])
 
-console.log(joro.greet())
+joro.greet()
