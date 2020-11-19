@@ -77,12 +77,7 @@
 
     let users = ["Maria", "Ada", "Ivan"]
 
-    let usersSortedAlphabetically = users.map(function(el, i) {
-        return { 
-            index: i,
-            value: el.toLowerCase()
-        }
-    })
+    let usersSortedAlphabetically = users.map(x => x)
 
     usersSortedAlphabetically.sort()
 
