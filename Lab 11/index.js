@@ -77,9 +77,7 @@
 
     let users = ["Maria", "Ada", "Ivan"]
 
-    let usersSortedAlphabetically = users.map(x => x)
-
-    usersSortedAlphabetically.sort()
+    let usersSortedAlphabetically = [...users].sort()
 
     // TEST CASE:
     console.log(`users:\n\t${users}\n`);
