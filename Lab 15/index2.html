@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>cookiesDemo </title>
+	<style>
+		/* todo: why not works */
+		/* [type="checkbox"]+span{
+			color: red;
+		} */
+		/* DONE: because the SPAN is not a sibling to INPUT. But we can select the INPUT, which is sibling to SPAN*/
+		span+input[type="checkbox"]{
+			/* just for demo */
+			appearance: none;
+			width: 1em;
+			height: 1em;
+			border:1px solid red;
+		}
+
+		/* TASK: use this selector to optimize the code bellow (skip the if( checkbox.checked ){} step) */
+		[type="checkbox"]:checked{
+			width: 100px;
+			/* most CSS properties do not work on input elements, if the "appearance" is not set to "none" */
+			border:5px solid red;
+		}
+
+	</style>
+</head>
+<body>
+	<span>Item 1</span>
+	<ul>
+		<li><span>Item 1</span> <input type="checkbox"></li>
+		<li><span>Item 2</span> <input type="checkbox"></li>
+		<li><span>Item 3</span> <input type="checkbox"></li>
+	</ul>
+	<button class="btnSave">Save</button>
+	<script>
+		// DOM cache:
+		const btnSave = document.querySelector('.btnSave');
+		const checkboxes = document.querySelectorAll('[type="checkbox"]');
+
+		// get local storage
+		const localStorage = window.localStorage;
+
+
+		// attach events:
+		btnSave.addEventListener('click', function () {
+            const checked = document.querySelectorAll('[type="checkbox"]:checked')
+			for (let i = 0; i < checked.length; i++) {
+				const checkedBox = checked[i];
+                const itemValue = checkedBox.previousElementSibling.innerText;
+                localStorage.setItem(`product${i+1}`,itemValue);
+            }
+		})
+
+		// let testInput = document.querySelector('[type="checkbox"]');
+		// let span = testInput.previousElementSibling;
+		// console.log( span.innerText );
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

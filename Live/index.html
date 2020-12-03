@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS and React</title>
+    <title>Document</title>
 </head>
-    <body>
-        
-        <script src="index.js"></script>
-    </body>
+<body>
+    
+
+<script>
+    let data = {
+        "productName": "Book1",
+    }
+
+    const sessionStorage = window.sessionStorage
+    sessionStorage.setItem("productName", data.productName )
+    const localStorage = window.localStorage
+    localStorage.setItem("productName", data.productName )
+</script>
+
+</body>
 </html>

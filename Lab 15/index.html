@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>cookiesDemo </title>
+</head>
+<body>
+	<!--
+		TASK:
+			Store (by cookie) the selected user color and whenever the page is loaded set the body background to that color.
+	-->
+	<label>color: <input type="color"></label>
+
+	<button class="getCookie">Get Cookie</button>
+	<button class="setCookie">Set Cookie</button>
+
+	<script>
+
+		function getCookie() {
+			console.log(`Current cookies: ${document.cookie}`);
+		}
+
+		function setCookie(name, value) {
+			console.log(`Setting cookie`);
+			// set a cooke:
+			document.cookie = `${name}=${value};Path=/;`;
+			document.cookie += `;session=123;Path=/;`;
+		}
+
+		// DOM cache:
+		const getCookieBtn = document.querySelector('.getCookie');
+		const setCookieBtn = document.querySelector('.setCookie');
+		const colorInput= document.querySelector('[type="color"]');
+
+        const body = document.querySelector("body");
+
+        // paint body with input value
+        if (colorInput.value) {
+            body.style.backgroundColor = colorInput.value
+        }
+
+		// attach events:
+		getCookieBtn.addEventListener('click', getCookie );
+		setCookieBtn.addEventListener('click', setCookie );
+		colorInput.addEventListener('change', function () {
+			console.log( colorInput.value );
+			setCookie('color', colorInput.value);
+		})
+
+	</script>
+</body>
+</html>
