@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<title>Song Lyrics</title>
+</head>
+<body>
+	<h1>Song Lyrics</h1>
+	<div class="covers">
+		<img src="LS.jpg" alt="ls">
+		<img src="ECS.jpg" alt="ecs">
+		<img src="ANG.jpg" alt="ang">
+	</div>
+	<p class="lyrics">Click on a song cover to display song lyrics.</p>
+	<script>
+		const lyrics = document.querySelector(".lyrics")
+		const covers = document.querySelectorAll("img")
+
+		const proba = function() {
+			var xhttp = new XMLHttpRequest()
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					lyrics.innerText = this.responseText
+				}
+			}
+			const file = `${this.alt}.txt`
+			xhttp.open("GET", file, true)
+			xhttp.send()
+		}
+
+		covers.forEach(element => {element.addEventListener("click", proba)})
+
+
+	</script>
+</body>
+</html>

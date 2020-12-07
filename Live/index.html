@@ -1,23 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>renderData </title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 </head>
 <body>
-    
+	<div class="output">
+		<ul>
+			<!-- <li><span>Todo 1</span><span>No</span></li>
+			<li><span>Todo 2</span><span>Yes</span></li>
+			<li><span>Todo 3</span><span>No</span></li> -->
+		</ul>
+	</div>
+	<button class="btnShow">Show Todos</button>
 
-<script>
-    let data = {
-        "productName": "Book1",
-    }
+	<script>
+		let todos = [
+			{
+				'title': 'Todo 1',
+				'completed': false
+			},
+			{
+				'title': 'Todo 2',
+				'completed': true
+			},
+			{
+				'title': 'Todo 3',
+				'completed': false
+			},
+        ]
+        
+        const btnShow = document.querySelector(".btnShow")
+        const output = document.querySelector(".output > ul")
+        
+        btnShow.addEventListener("click", function(e) {
+            render(output, todos)
+        })
 
-    const sessionStorage = window.sessionStorage
-    sessionStorage.setItem("productName", data.productName )
-    const localStorage = window.localStorage
-    localStorage.setItem("productName", data.productName )
-</script>
+        const render = function(output, todos) {
+            todos.forEach( todo => {
+                console.log(`${todo.title}: ${todo.completed ? "Yes" : "No"}`)
+                output.innerHTML += `<li><span>${todo.title}:</span><span>${todo.completed ? "Yes" : "No"}</span><br>`
+            })
+        }
 
+	</script>
 </body>
 </html>

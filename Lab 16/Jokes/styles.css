@@ -1,0 +1,25 @@
+html {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    font-family: Helvetica, sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    background: #202020;
+    color: white;
+}
+button {
+    background: white;
+    border: 0;
+    padding: 16px;
+    font: inherit;
+    border-radius: 3px;
+}
