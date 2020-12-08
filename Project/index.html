@@ -1,43 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <ol>
-        <li>
-            <label>
-                <span>asd</span>
-                <input type="checkbox">
-            </label>
-        </li>
-        <li>
-            <label>
-                <span>asd</span>
-                <input type="checkbox">
-            </label>
-        </li>
-        <li>
-            <label>
-                <span>asd</span>
-                <input type="checkbox">
-            </label>
-        </li>
-        <li>
-            <label>
-                <span>asd</span>
-                <input type="checkbox">
-            </label>
-        </li>
-        <li>
-            <label>
-                <span>asd</span>
-                <input type="checkbox">
-            </label>
-        </li>
-    </ol>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>renderData </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <header>
+            <h1>Todo List</h1>
+        </header>
+        <hr>
+        <div class="output">
+            <ul></ul>
+        </div>
+        <button class="btnShow">Show Todos</button>
+
+        <script>
+
+            const render = function(output, todos ) {
+                todos.forEach( todo=>{
+                    let completedClass = "";
+                    if ( todo.completed ) {
+                        completedClass = 'class="completed"';
+                    }
+                    output.innerHTML += `<li><span ${completedClass}>${todo.title}</span></li>`;
+                } )
+
+                
+
+
+
+                // 'Todo 1': No
+                // 'Todo 2': Yes
+                // 'Todo 3': No
+            }
+
+            const getTodos = function(url) {
+                    fetch(url)
+                    .then( r => r.text() )
+                    .then ( dataStr => {
+                        console.log(dataStr)
+                    } )
+                }
+
+            let todosString = getTodos("http://localhost:3000/todos")
+            let todos = JSON.parse(todosString)
+
+            // DOM cache:
+            const btnShow = document.querySelector('.btnShow');
+            const output = document.querySelector('.output>ul');
+
+            btnShow.addEventListener('click', function () {
+
+                render(output, todos)
+            })
+
+        </script>
+    </body>
 </html>
