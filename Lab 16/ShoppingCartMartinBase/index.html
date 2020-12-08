@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ShopingCard</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+	<body>
+		<section class="cart">
+			<h1>Shopping Cart</h1>
+			<div class="cart wrap">
+
+			</div>
+
+		</section>
+		<section class="cart">
+			<h1>Products</h1>
+			<div class="prod wrap">
+
+			</div>
+
+		</section>
+
+		<script>
+			const prodWrapper = document.querySelector(".prod")
+
+			let render = function (template, node) {
+				node.innerHTML += template
+			}
+
+// do i need ajax for loading initial products?
+// how to get json info without this.responseText?
+
+			const rendAjax = function() {
+				let xhttp = new XMLHttpRequest()
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						const arr = JSON.parse(this.responseText).products
+						arr.forEach(element => {
+							render(`
+								<div class="productPlate" onclick="addToCart(this)">
+									<img src=${element.imgSrc} alt="">
+									<div>${element.productName}</div>
+								</div>
+							`, prodWrapper )
+						})
+					}
+				}
+				xhttp.open("GET", "dataBase.json", true)
+				xhttp.send()
+			}()
+
+			let addToCart = function(th) {
+				console.log(th)
+			}
+
+			let cartProducts = []
+
+// querySelectorAll only works on static elements, not on new from response?
+// how to get new elements?
+// how to add event listeners to new elements?
+
+
+			// let products = document.getElementsByClassName("productPlate")
+			// for (let i = 0; i < products.length; i++) {
+			// 	products[i].addEventListener("click", console.log("increment cart!"))
+			// }
+
+
+			
+
+		</script>
+	</body>
+</html>

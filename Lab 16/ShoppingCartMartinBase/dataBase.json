@@ -1,0 +1,65 @@
+{
+    "products": [
+        {
+            "id": "1",
+            "productName": "Champagne",
+            "imgSrc": "images/small/champ.png",
+            "inCart": 0
+        },
+        {
+            "id": "2",
+            "productName": "Crisps",
+            "imgSrc": "images/small/chips.png",
+            "inCart": 0
+        },
+        {
+            "id": "3",
+            "productName": "Cigarettes",
+            "imgSrc": "images/small/cigaretes.png",
+            "inCart": 0
+        },
+        {
+            "id": "4",
+            "productName": "Coffee",
+            "imgSrc": "images/small/coffee.png",
+            "inCart": 0
+        },
+        {
+            "id": "5",
+            "productName": "Coke",
+            "imgSrc": "images/small/cola.png",
+            "inCart": 0
+        },
+        {
+            "id": "6",
+            "productName": "Beer",
+            "imgSrc": "images/small/corona.png",
+            "inCart": 0
+        },
+        {
+            "id": "7",
+            "productName": "Wiskey",
+            "imgSrc": "images/small/jack.png",
+            "inCart": 0
+        },
+        {
+            "id": "8",
+            "productName": "Ice Tea",
+            "imgSrc": "images/small/nestea.png",
+            "inCart": 0
+        },
+        {
+            "id": "9",
+            "productName": "Cigar",
+            "imgSrc": "images/small/pura.png",
+            "inCart": 0
+        },
+        {
+            "id": "10",
+            "productName": "Vodka",
+            "imgSrc": "images/small/vodka.png",
+            "inCart": 0
+        }
+    ]
+}
+  
