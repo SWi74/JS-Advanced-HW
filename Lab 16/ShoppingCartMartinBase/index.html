@@ -23,51 +23,48 @@
 
 		<script>
 			const prodWrapper = document.querySelector(".prod")
+			const cartWrapper = document.querySelector(".cart")
 
 			let render = function (template, node) {
 				node.innerHTML += template
 			}
 
-// do i need ajax for loading initial products?
-// how to get json info without this.responseText?
-
-			const rendAjax = function() {
-				let xhttp = new XMLHttpRequest()
-				xhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-						const arr = JSON.parse(this.responseText).products
-						arr.forEach(element => {
+			const rendProducts = function() {
+				fetch("dataBase.json")
+				.then(response => response.json())
+				.then(result => {
+					result.forEach(element => {
+						if (element.inCart ===! 0) {
+							console.log("kinda!?")
 							render(`
 								<div class="productPlate" onclick="addToCart(this)">
 									<img src=${element.imgSrc} alt="">
 									<div>${element.productName}</div>
 								</div>
-							`, prodWrapper )
-						})
-					}
-				}
-				xhttp.open("GET", "dataBase.json", true)
-				xhttp.send()
-			}()
+							`, cartWrapper)
+						}	else {
+							console.log("Not in cart!")
+						}
 
+						render(`
+							<div class="productPlate" onclick="addToCart(this)">
+								<img src=${element.imgSrc} alt="">
+								<div>${element.productName}</div>
+							</div>
+						`, prodWrapper)
+					})
+				})
+			}()
+	
 			let addToCart = function(th) {
-				console.log(th)
+				console.log("add under constr!")
+			}
+
+			const removeFromCart = function(th) {
+				console.log("remove under constr!")
 			}
 
 			let cartProducts = []
-
-// querySelectorAll only works on static elements, not on new from response?
-// how to get new elements?
-// how to add event listeners to new elements?
-
-
-			// let products = document.getElementsByClassName("productPlate")
-			// for (let i = 0; i < products.length; i++) {
-			// 	products[i].addEventListener("click", console.log("increment cart!"))
-			// }
-
-
-			
 
 		</script>
 	</body>

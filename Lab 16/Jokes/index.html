@@ -12,20 +12,17 @@
 	<script>
 		const joke = document.querySelector("p")
 		const btn = document.querySelector("button")
-		let jokeAPI = 'http://api.icndb.com/jokes/random'
+		let url = 'http://api.icndb.com/jokes/random'
 
 		// joke 153 has bad quots?
 		// connection was not secure?
 
 		const generateJoke = function() {
-			let xhttp = new XMLHttpRequest()
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-					joke.innerText = JSON.parse(this.responseText).value.joke
-				}
-			}
-			xhttp.open("GET", jokeAPI, true)
-			xhttp.send()
+			fetch(url)
+			.then(response => response.json())
+			.then(data => {
+				joke.innerHTML = data.value.joke
+			})
 		}
 
 		btn.addEventListener("click", generateJoke)
