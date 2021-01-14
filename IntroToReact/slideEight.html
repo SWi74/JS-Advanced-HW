@@ -1,0 +1,15 @@
+<head>
+  <title>Simplest React App</title>
+  <script type="text/javascript" src="https://unpkg.com/react@latest/umd/react.production.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/react-dom@latest/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    let reactElement = React.createElement("h1", null, "Hello, world!");
+    let rootDOMElement = document.querySelector('#root');
+
+    ReactDOM.render(reactElement, rootDOMElement);
+  </script>
+</body>
